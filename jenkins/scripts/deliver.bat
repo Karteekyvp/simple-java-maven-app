@@ -8,8 +8,9 @@ for /f "delims=" %%a in ('mvn help:evaluate -Dexpression=project.name ^| findstr
 REM Extract project version from pom.xml
 for /f "delims=" %%a in ('mvn help:evaluate -Dexpression=project.version ^| findstr /v /c:"["') do set VERSION=%%a
 
-REM Change to target directory before running Java
+REM Navigate to the target directory
 cd /d %~dp0\..\..\target
 
 echo Running the Java application...
-start /wait cmd /c "java -jar %NAME%-%VERSION%.jar"
+java -jar %NAME%-%VERSION%.jar | tee output.log
+type output.log
