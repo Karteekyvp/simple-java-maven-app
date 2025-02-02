@@ -16,7 +16,7 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
+        stage('Deploy & Run') {
             steps {
                 bat 'call jenkins\\scripts\\deliver.bat'
             }
