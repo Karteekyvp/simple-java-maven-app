@@ -9,5 +9,5 @@ REM Extract the project version from pom.xml
 for /f "delims=" %%a in ('mvn help:evaluate -Dexpression=project.version ^| findstr /v /c:"["') do set VERSION=%%a
 
 echo Running the Java application...
-java -jar target\%NAME%-%VERSION%.jar
-
+java -jar target\%NAME%-%VERSION%.jar | tee output.log
+type output.log
