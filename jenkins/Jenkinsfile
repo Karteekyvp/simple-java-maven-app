@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // Runs on any available agent (Windows)
+    agent any
     stages {
         stage('Build') {
             steps {
